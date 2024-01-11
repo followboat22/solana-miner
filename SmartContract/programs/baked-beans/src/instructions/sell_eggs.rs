@@ -1,4 +1,4 @@
-use crate::{constants::*, error::*, instructions::*, states::*, utils::*};
+use crate::{constants::*, error::*, states::*, utils::*};
 use anchor_lang::prelude::*;
 use solana_program::{program::invoke_signed, system_instruction};
 #[derive(Accounts)]
@@ -59,7 +59,7 @@ pub fn handle(ctx: Context<SellEggs>) -> Result<()> {
         .unwrap();
 
     msg!("SellEggs has_eggs {}", has_eggs);
-    let mut egg_value = calculate_eggs_sell(&accts.global_state, has_eggs, accts.vault.lamports())?;
+    let egg_value = calculate_eggs_sell(&accts.global_state, has_eggs, accts.vault.lamports())?;
 
     let fee = dev_fee(&accts.global_state, egg_value)?;
     accts.user_state.claimed_eggs = 0;

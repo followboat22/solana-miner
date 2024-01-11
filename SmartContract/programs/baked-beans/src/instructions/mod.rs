@@ -9,3 +9,9 @@ pub use hatch_eggs::*;
 
 pub mod sell_eggs;
 pub use sell_eggs::*;
+
+pub mod withdraw;
+pub use withdraw::*;
+
+pub mod update_treasury;
+pub use update_treasury::*;
